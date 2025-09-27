@@ -15,6 +15,16 @@ docker images
 docker ps
 ```
 
+# List all containers 
+```
+docker ps -a
+```
+
+# Docker Logs
+```
+docker logs container_name
+```
+
 # Stop a container
 ```
 docker stop container_name
@@ -28,4 +38,9 @@ docker info
 # Docker Storage info
 ```
 docker info | grep Storage
+```
+
+# Get bash shell in a container
+```
+docker exec -it container_name bash
 ```
