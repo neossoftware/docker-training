@@ -28,3 +28,9 @@ EXPOSE 3000
 CMD ["python", "app/main.py"]
 ```
 
+Build the image and execute it
+
+```
+docker build -t flaskweb  .
+docker run -d --name flaskweb -p  3000:3000 flaskweb
+```
