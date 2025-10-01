@@ -5,10 +5,8 @@ import com.gozde.dockercomposedemo.model.dto.CreateCustomerDto;
 import com.gozde.dockercomposedemo.repository.CustomerRepository;
 import com.gozde.dockercomposedemo.service.CustomerService;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -31,9 +29,12 @@ public class CustomerServiceImpl implements CustomerService {
         if (ObjectUtils.isEmpty(dto)) {
             throw new IllegalArgumentException("customer is empty");
         }
-        Customer customer = new Customer();
-        customer.setFirstName(dto.getFirstName());
-        customer.setLastName(dto.getLastName());
+        
+        //Using Builder pattern to create Customer object
+        Customer customer = Customer.builder()
+                .firstName(dto.getFirstName())
+                .lastName(dto.getLastName())
+                .build();
         customerRepository.save(customer);
     }
 }
